@@ -1,0 +1,75 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title-container {
+  display: inline-block; /* Shrink-wrap around content */
+  padding: 10px; /* Adjust padding as needed */
+  border: 3px solid rgb(156, 151, 151); /* Black border */
+  border-radius: 25px;
+  color: rgb(0, 0, 0); /* Text color */
+
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.video-details {
+  margin-right: 20px;
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-weight: bold;
+}
+
+.video-item {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 10px;
+}
+
+.videos {
+  max-height: 500px; 
+  overflow-y: auto; 
+  border: 3px solid #ccc; 
+  border-radius: 25px; 
+  background-color: rgba(255, 255, 255, 0.5); 
+  padding: 10px; 
+}
+
+.stat-card {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center; 
+  color: black;
+}
+
+.list{
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  margin-top: 2rem;
+  padding: 15px; 
+  color: black;
+}
+
+.filters{
+  color: black;
+}
