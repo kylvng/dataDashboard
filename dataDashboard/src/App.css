@@ -7,10 +7,12 @@
 
 .title-container {
   display: inline-block; /* Shrink-wrap around content */
-  padding: 10px; /* Adjust padding as needed */
-  border: 3px solid rgb(156, 151, 151); /* Black border */
-  border-radius: 25px;
-  color: rgb(0, 0, 0); /* Text color */
+  padding: 50px; /* Adjust padding as needed */
+  border: 1px solid rgb(107, 107, 107); /* Black border */
+  border-radius: 45px;
+  color: rgb(255, 255, 255); /* Text color */
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.21);
 
 }
 
@@ -59,7 +61,7 @@
 .stats {
   display: flex;
   justify-content: center; 
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .list{
@@ -67,9 +69,9 @@
   border-radius: 25px;
   margin-top: 2rem;
   padding: 15px; 
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .filters{
-  color: black;
+  color: rgb(255, 255, 255);
 }

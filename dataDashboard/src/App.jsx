@@ -18,44 +18,46 @@ function App() {
     const [sortBy, setSortBy] = useState('mostViewed'); 
 
 
-    useEffect(() => {
-      const fetchVideos = async () => {
-          try {
-              const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
-                  params: {
-                      part: 'snippet,statistics',
-                      chart: 'mostPopular',
-                      maxResults: maxResults, // Use maxResults from state
-                      key: API_KEY
-                  }
-              });
-              setVideos(response.data.items);
-              setFilteredVideos(response.data.items);
-          } catch (error) {
-              console.error('Error fetching videos:', error);
-          }
-      };
+useEffect(() => {
+    const fetchVideos = async () => {
+        try {
+            const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+                params: {
+                    part: 'snippet,statistics',
+                    chart: 'mostPopular',
+                    maxResults: maxResults,
+                    key: API_KEY
+                }
+            });
+            setVideos(response.data.items);
+            setFilteredVideos(response.data.items);
+        } catch (error) {
+            console.error('Error fetching videos:', error);
+        }
+    };
 
-      fetchVideos();
-  }, [maxResults]); 
+    fetchVideos();
+}, [maxResults, selectedGenre]); 
 
 
   useEffect(() => {
     // Sorting logic
     const sortVideos = () => {
-        const sortedVideos = [...filteredVideos].sort((a, b) => {
-            if (sortBy === 'mostViewed') {
-                return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
-            } else if (sortBy === 'leastViewed') {
-                return parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount);
-            }
-            return 0;
+        setFilteredVideos(prevFilteredVideos => {
+            const sortedVideos = [...prevFilteredVideos].sort((a, b) => {
+                if (sortBy === 'mostViewed') {
+                    return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
+                } else if (sortBy === 'leastViewed') {
+                    return parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount);
+                }
+                return 0;
+            });
+            return sortedVideos;
         });
-        setFilteredVideos(sortedVideos);
     };
 
     sortVideos(); // Call the sorting function initially
-}, [filteredVideos, sortBy]); // Trigger sorting when filteredVideos or sortBy change
+}, [sortBy]); // Only trigger sorting when sortBy changes
 
 
 
