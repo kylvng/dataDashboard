@@ -1,77 +1,137 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.title-container {
-  display: inline-block; /* Shrink-wrap around content */
-  padding: 50px; /* Adjust padding as needed */
-  border: 1px solid rgb(107, 107, 107); /* Black border */
-  border-radius: 45px;
-  color: rgb(255, 255, 255); /* Text color */
-  backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.21);
+.whole-page{
+  display: flex;
+  align-items: flex-start; /* Align children to the top */
+  color: rgb(60, 60, 60); /* Change to the desired text color */
+}
 
+.logo-stat-container {
+  max-width: 360px;
+  max-height: 700px;
+  overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
+}
+
+.logo{
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 999; /* Ensure the logo is above other content */
+  border: rgb(254, 254, 254) 1px transparent;
+  border-radius: 35px;
+  margin: 1rem;
+  color: white;
+  padding: 5px;
+  background-color:rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(100px); 
+}
+
+.performance-card{
+  color: rgb(255, 255, 255);
+  line-height: 0.5;
+  display: flex; /* Add display flex */
+  flex-direction: column; /* Set flex direction to column */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  background-color: rgba(52, 52, 52, 0.1);
+  border: 1px transparent rgb(145, 145, 145);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin: 5px;
+  backdrop-filter: blur(50px);
+}
+
+.stat-card{
+  color: rgb(255, 255, 255);
+  display: flex; /* Add display flex */
+  flex-direction: column; /* Set flex direction to column */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  background-color: rgba(52, 52, 52, 0.1);
+  border: 1px transparent rgb(145, 145, 145);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin: 5px;
+  backdrop-filter: blur(50px); 
+}
+
+.filter-and-list{
+  width: 75%;
+}
+
+.home-button {
+  position: absolute;
+  top: 30px; /* Adjust as needed */
+  right: 50px; /* Adjust as needed */
+  z-index: 999; /* Ensure it's above other content */
 }
 
 
-.card {
-  padding: 2em;
+.filters{
+  margin-bottom: -5x;
+  color: rgb(255, 255, 255);
+}
+.filters p {
+  line-height: 0.5; /* Corrected targeting the <p> element within .filters */
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-
-.video-details {
-  margin-right: 20px;
+.list{
+  border-radius: 25px;
+  margin-top: 2rem;
+  padding: 5px; 
+  margin-top: 6px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.108);
+  backdrop-filter: blur(10px);
 }
 
 .headers {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   font-weight: bold;
+}
+
+.video-detail-page{
+  max-height: 335px; 
+  overflow-y: auto; 
+  border-radius: 25px; 
+  background-color: rgba(0, 0, 0, 0.203); 
+  color: white;
+  padding: 10px; 
+}
+.videos {
+  max-height: 250px; 
+  overflow-y: auto; 
+  border-radius: 25px; 
+  background-color: rgba(0, 0, 0, 0.203); 
+  color: white;
+  padding: 10px; 
 }
 
 .video-item {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   margin-bottom: 10px;
 }
 
-.videos {
-  max-height: 500px; 
-  overflow-y: auto; 
-  border: 3px solid #ccc; 
-  border-radius: 25px; 
-  background-color: rgba(255, 255, 255, 0.5); 
-  padding: 10px; 
-}
-
-.stat-card {
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  padding: 10px;
-  margin-right: 10px;
-}
 
 .stats {
+  justify-content: center;
+}
+
+.graph {
   display: flex;
-  justify-content: center; 
-  color: rgb(255, 255, 255);
+  position: absolute;
+  right: 210px;
+  bottom: 1px;
+  justify-content: center; /* Center the graph horizontally */
 }
 
-.list{
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  margin-top: 2rem;
-  padding: 15px; 
-  color: rgb(255, 255, 255);
-}
 
-.filters{
-  color: rgb(255, 255, 255);
-}

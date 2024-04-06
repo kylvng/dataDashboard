@@ -1,7 +1,8 @@
 // Filters.jsx
 import React from 'react';
+import SearchBar from './SearchBar';
 
-function Filters({ maxResults, selectedGenre, sortBy, handleSliderChange, handleGenreChange, toggleSort, filteredVideos }) {
+function Filters({ maxResults, selectedGenre, sortBy, handleSliderChange, handleGenreChange, toggleSort, filteredVideos, searchInput, setSearchInput}) {
     const handleSortToggle = () => {
         toggleSort(sortBy === 'mostViewed' ? 'leastViewed' : 'mostViewed');
     };
@@ -62,6 +63,7 @@ function Filters({ maxResults, selectedGenre, sortBy, handleSliderChange, handle
             </button>
 
             <p>{`Displaying ${filteredVideos.length} channels`}</p>
+            <SearchBar searchValue={searchInput} setSearchValue={setSearchInput}/>
         </div>
     );
 }

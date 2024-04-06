@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function formatDate(dateString) {
     const options = { 
@@ -19,6 +20,8 @@ function VideoList({ videos, getCategoryName }) {
                 <p>Title</p>
                 <p>Channel</p>
                 <p>Genre</p>
+                <p></p>
+                <p>Details</p>
             </div>
             <div className="videos">
                 {videos.map(video => (
@@ -28,11 +31,15 @@ function VideoList({ videos, getCategoryName }) {
                         <p>{video.snippet.channelTitle}</p>
                         <p>{getCategoryName(video.snippet.categoryId)}</p>
                         <img src={video.snippet.thumbnails.default.url} alt={video.snippet.title} />
+                        {/* Link to the video detail page */}
+                        <Link to={`/video/${video.id}`}>
+                            <button>Details</button>
+                        </Link>
                     </div>
                 ))}
             </div>
         </div>
-    );
+    ); 
 }
 
 export default VideoList;

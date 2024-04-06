@@ -13,7 +13,7 @@ function SearchBar({ searchValue, setSearchValue }) {
                 value={searchValue}
                 onChange={handleChange}
             />
-        </div>
+        </div> 
     );
 }
 

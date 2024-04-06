@@ -4,7 +4,9 @@ import Stats from './components/Stats';
 import VideoList from './components/VideoList';
 import SearchBar from './components/SearchBar';
 import Filters from './components/Filters';
-import youtubeLogo from './images/youtube.png'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BrowserRouter as Router, Routes, Route, Link  } from 'react-router-dom'; // Import BrowserRouter, Routes, and Route   
+import VideoDetailPage from './components/VideoDetailPage'; // Import the VideoDetailPage component
 import './App.css';
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
@@ -16,6 +18,7 @@ function App() {
     const [maxResults, setMaxResults] = useState(5); 
     const [selectedGenre, setSelectedGenre] = useState(''); 
     const [sortBy, setSortBy] = useState('mostViewed'); 
+    const [graphData, setGraphData] = useState([]);
 
 
 useEffect(() => {
@@ -62,10 +65,10 @@ useEffect(() => {
 
 
 
-  useEffect(() => {
+useEffect(() => {
     let filteredResults = videos;
 
-    // Filter by selected 
+    // Filter by selected genre
     if (selectedGenre) {
         filteredResults = filteredResults.filter(video => video.snippet.categoryId === selectedGenre);
     }
@@ -81,7 +84,14 @@ useEffect(() => {
     }
 
     setFilteredVideos(filteredResults);
-  }, [selectedGenre, searchInput, videos]);
+
+    // Update graph data
+    const data = filteredResults.map(video => ({
+        name: video.snippet.title,
+        views: parseInt(video.statistics.viewCount)
+    }));
+    setGraphData(data);
+}, [selectedGenre, searchInput, videos]);
 
 
   const handleSortChange = () => {
@@ -167,31 +177,58 @@ useEffect(() => {
                 return 'Unknown';
         }
     }
-    const toggleSort = () => {
-      setSortBy(prevSortBy => prevSortBy === "mostViewed" ? "leastViewed" : "mostViewed");
-  };
-
+    
 
     return (
-      <div className="whole-page">
-          <div className='title-container'>
-             <h1>YouTube's Top Hits</h1>
-          </div>
-          <Stats videos={videos} getCategoryName={getCategoryName}/>
-          <SearchBar searchValue={searchInput} setSearchValue={setSearchInput} />
-          <Filters
-              maxResults={maxResults}
-              selectedGenre={selectedGenre}
-              sortBy={sortBy}
-              handleSliderChange={handleSliderChange}
-              handleGenreChange={handleGenreChange}
-              handleSortChange={handleSortChange}
-              filteredVideos={filteredVideos}
-              toggleSort={toggleSort}
-          />
-          <VideoList videos={filteredVideos} getCategoryName={getCategoryName} />
-      </div>
-  );
+        <Router>
+            <div className="whole-page">
+                    <Link to={`/`} className="home-button">
+                            Home
+                        </Link>
+                <div className="logo-stat-container">
+                    <div className="logo">
+                        <h1>YouTube's Top Hits</h1>
+                    </div>
+                    <Stats videos={videos} getCategoryName={getCategoryName} />
+
+                </div>
+                <div className="filter-and-list">
+                    <Filters
+                        maxResults={maxResults}
+                        selectedGenre={selectedGenre}
+                        sortBy={sortBy}
+                        handleSliderChange={handleSliderChange}
+                        handleGenreChange={handleGenreChange}
+                        toggleSort={handleSortChange}
+                        filteredVideos={filteredVideos}
+                        searchInput={searchInput} 
+                        setSearchInput={setSearchInput}
+                    />
+                    <Routes>
+                        <Route path="/" element={<VideoList videos={filteredVideos} getCategoryName={getCategoryName} />} />
+                        <Route path="/video/:videoId" element={<VideoDetailPage videos={videos} />} />
+                    </Routes>
+                    <div className="graph">
+                        <LineChart width={700} height={250} data={graphData}>
+                            <XAxis dataKey="name" angle={5} tick={{ fontSize: 12, fontWeight: 'bold', fill: 'white' }} domain={['auto', 'auto'] } 
+                                    tickFormatter={(value) => {
+                                    const maxLength = 10;
+                                    return value.length > maxLength ? `${value.substring(0, maxLength)}...` : value;
+                                }}
+                            />
+                            <YAxis type="number" angle={-25} tick={{ fontSize: 10, fontWeight: 'bold', fill: 'white' }} domain={['auto', 'auto']} tickFormatter={(value) => value.toLocaleString()} />
+                            <CartesianGrid stroke="#eee" />
+                            <Tooltip formatter={(value) => value.toLocaleString()} />
+                            <Legend />
+                            <Line type="monotone" dataKey="views" stroke="#8884d8" />
+                        </LineChart>
+                    </div>
+                </div>
+                
+            </div>
+        </Router>
+    );
+    
 }
 
 export default App;
