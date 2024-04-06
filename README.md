@@ -65,29 +65,29 @@ One of the bigger challenges I encountered while building this app would be auth
     See the License for the specific language governing permissions and
     limitations under the License.
 
-___________________________________________________________________________________________________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________________________________________
 
 
-# Web Development Project 6 - *Name of App Here*
+# Web Development Project 6 - *YouTubeTopHits*
 
-Submitted by: **Your Name Here**
+Submitted by: **Kyle Vong**
 
-This web app: **insert description**
+This web app: **This web app utilizes Google Cloud's Youtube Data API to fetch data on Youtube's top performing videos. These videos are features on their trending page and this application lists these videos, collect stats, and organize these data into stat cards so you can learn more about these top hits! There is also a details column that directs the user to a details page of each video as well as a chart to help visualize the views these hits are getting.**
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
-- [ ] **Clicking on an item in the list view displays more details about it**
-- [ ] **Clicking on an item has a direct, unique link to that item's detail view page**
+- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [X] **Clicking on an item in the list view displays more details about it**
+- [X] **Clicking on an item has a direct, unique link to that item's detail view page**
 
 
 The following **optional** features are implemented:
 
-- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [X] The site's customized dashboard contains more content that explains what is interesting about the data
 - [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
@@ -98,10 +98,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/K5lvYOz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Kap!  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -111,9 +111,11 @@ GIF created with ...
 
 Describe any challenges encountered while building the app.
 
+Throughout this second half, I had a hard time setting up my routes because of the way my root file rendered. Since I only had two routes, I just put them in my app.jsx. Also, the styling of the website took very long and I am still not content with it. I realized that I am not a good styler but I will continue to work on it. 
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2004] [Kyle Vong]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
