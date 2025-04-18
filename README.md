@@ -1,34 +1,6 @@
-# Web Development Project 5 - *YouTubeTopHits*
-
-Submitted by: **Kyle Vong**
+# *YouTubeTopHits*
 
 This web app: **This web app utilizes Google Cloud's Youtube Data API to fetch data on Youtube's most well performing videos. These videos are features on their trending page and this application lists these videos, collect stats, and organize these data into stat cards so you can learn more about these top hits!**
-
-Time spent: **7.5** hours spent in total
-
-## Required Features
-
-The following **required** functionality is completed:
-
-- [X] **The list displays a list of data fetched using an API call**
-- [X] **Data uses the useEffect React hook and async/await syntax**
-- [X] **The app dashboard includes at least three summary statistics about the data such as**
-  - [X] Average views across all videos
-  - [X] Average likes across all videos
-  - [X] Most popular genre between all trending videos
-  - [X] Most well performing video based on views, likes, and comments
-- [X] **A search bar allows the user to search for an item in the fetched data**
-- [X] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
-
-The following **optional** features are implemented:
-
-- [X] Multiple filters can be applied simultaneously
-- [X] Filters use different input types such as a text input, a selection, or a slider
-- [X] The user can enter specific bounds for filter values
-
-The following **additional** features are implemented:
-
-* [X] Thumbnails
 
 ## Video Walkthrough
 
@@ -44,8 +16,6 @@ GIF created with Kap!
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-
-Describe any challenges encountered while building the app.
 
 One of the bigger challenges I encountered while building this app would be authorizaiton of my api calls. I found difficulty navigating the documentation of the Youtube Data api and found trouble when fetching data due to a "forbidden" status code. I found out it was due to how I was authorizing my api key and fixed it quickly. Another problem would be managing many components within my app. When your component have dependencies within other components, it can get messy fast. I learned a lot through this project and plan to build upon it in the future. 
 
@@ -68,31 +38,10 @@ One of the bigger challenges I encountered while building this app would be auth
 ____________________________________________________________________________________________________________________________________________________________________________
 
 
-# Web Development Project 6 - *YouTubeTopHits*
-
-Submitted by: **Kyle Vong**
-
-This web app: **This web app utilizes Google Cloud's Youtube Data API to fetch data on Youtube's top performing videos. These videos are features on their trending page and this application lists these videos, collect stats, and organize these data into stat cards so you can learn more about these top hits! There is also a details column that directs the user to a details page of each video as well as a chart to help visualize the views these hits are getting.**
-
-Time spent: **4** hours spent in total
-
-## Required Features
-
-The following **required** functionality is completed:
-
-- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
-- [X] **Clicking on an item in the list view displays more details about it**
-- [X] **Clicking on an item has a direct, unique link to that item's detail view page**
+# *YouTubeTopHits* PT2
 
 
-The following **optional** features are implemented:
-
-- [X] The site's customized dashboard contains more content that explains what is interesting about the data
-- [ ] The site allows users to toggle between different data visualizations
-
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
+This web app: **These videos are features on their trending page and this application lists these videos, collect stats, and organize these data into stat cards so you can learn more about these top hits! There is also a details column that directs the user to a details page of each video as well as a chart to help visualize the views these hits are getting.**
 
 ## Video Walkthrough
 
@@ -108,8 +57,6 @@ GIF created with Kap!
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-
-Describe any challenges encountered while building the app.
 
 Throughout this second half, I had a hard time setting up my routes because of the way my root file rendered. Since I only had two routes, I just put them in my app.jsx. Also, the styling of the website took very long and I am still not content with it. I realized that I am not a good styler but I will continue to work on it. 
 
